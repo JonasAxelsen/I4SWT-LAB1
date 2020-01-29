@@ -32,6 +32,11 @@ namespace Calculator
             Console.WriteLine("3 ^ (-3) = " + calc.Power(3, -3));
             Console.WriteLine("(-3) ^ (-3) = " + calc.Power(-3, -3));
 
+            calc.Clear();
+
+            Console.WriteLine("\n3 + 3 = " + calc.Add(3, 3));
+            Console.WriteLine("ans + 5 = " + calc.Add(5));
+
             Console.ReadKey();
         }
     }

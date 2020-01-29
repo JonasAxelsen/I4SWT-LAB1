@@ -13,6 +13,12 @@ namespace Calculator.TestUnit
         {
             uut = new Calculator();
         }
+
+        [TearDown]
+        public void Cleanup()
+        {
+            uut.Clear();
+        }
         
         [Test]
         public void Add_sum3And3_is6()
@@ -62,6 +68,5 @@ namespace Calculator.TestUnit
 
             Assert.That(prod,Is.EqualTo(result).Within(0.01));
         }
-
     }
 }

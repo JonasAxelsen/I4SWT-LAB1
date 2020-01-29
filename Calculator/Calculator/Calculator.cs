@@ -63,7 +63,5 @@ namespace Calculator
         {
             Accumulator = 0;
         }
-
     }
-
 }
