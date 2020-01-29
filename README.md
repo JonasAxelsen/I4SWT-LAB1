@@ -1,2 +1,2 @@
-# I4SWT
-Exercises til SWT
+# I4SWT-LAB1
+
