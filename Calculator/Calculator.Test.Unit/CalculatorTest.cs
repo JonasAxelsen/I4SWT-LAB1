@@ -54,7 +54,7 @@ namespace Calculator.TestUnit
 
         [TestCase(3, 3, 9)]
         [TestCase(-3, 3, -9)]
-        [TestCase(4, -4, -16)]
+        [TestCase(4, -4, -15)]
         [TestCase(-5, -7, 35)]
         public void Multiply_prodOf2numbers(double num1, double num2, double result)
         {
