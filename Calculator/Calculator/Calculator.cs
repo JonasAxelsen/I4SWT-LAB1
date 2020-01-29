@@ -24,7 +24,7 @@ namespace Calculator
 
         public double Subtract(double a)
         {
-            return Accumulator -= a;
+            return Accumulator -= Math.Abs(a);
         }
 
         public double Multiply(double a, double b)
