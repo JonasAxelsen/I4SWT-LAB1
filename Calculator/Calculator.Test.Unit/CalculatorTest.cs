@@ -6,12 +6,12 @@ namespace Calculator.TestUnit
     [TestFixture]
     public class CalculatorTest
     {
-        private Calculator uut;
+        private Calculator _uut;
 
         [SetUp]
         public void Setup()
         {
-            uut = new Calculator();
+            _uut = new Calculator();
         }
 
         [TestCase(3, 3, 6)]
@@ -20,7 +20,7 @@ namespace Calculator.TestUnit
         [TestCase(-4,3,-1)]
         public void Add_sumOf2numbers(double num1, double num2, double expectedResult)
         {
-            double testResult = uut.Add(num1, num2);
+            double testResult = _uut.Add(num1, num2);
 
             Assert.That(testResult,Is.EqualTo(expectedResult).Within(0.01));
         }
@@ -32,10 +32,10 @@ namespace Calculator.TestUnit
 
             for (int i = 0; i < times; i++)
             { 
-                uut.Add(num1);
+                _uut.Add(num1);
             }
 
-            double testResult = uut.Accumulator;
+            double testResult = _uut.Accumulator;
 
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
@@ -46,7 +46,7 @@ namespace Calculator.TestUnit
         [TestCase(-4,3,-7)]
         public void Subtract_differenceOf2numbers(double num1, double num2, double expectedResult)
         {
-            double testResult = uut.Subtract(num1, num2);
+            double testResult = _uut.Subtract(num1, num2);
 
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
@@ -58,10 +58,10 @@ namespace Calculator.TestUnit
 
             for (int i = 0; i < times; i++)
             {
-                uut.Subtract(num1);
+                _uut.Subtract(num1);
             }
 
-            double testResult = uut.Accumulator;
+            double testResult = _uut.Accumulator;
 
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
@@ -72,7 +72,7 @@ namespace Calculator.TestUnit
         [TestCase(-5, -7, 35)]
         public void Multiply_productOf2numbers(double num1, double num2, double expectedResult)
         {
-            double testResult = uut.Multiply(num1, num2);
+            double testResult = _uut.Multiply(num1, num2);
 
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
@@ -83,7 +83,7 @@ namespace Calculator.TestUnit
         [TestCase(2, -2, 0.25)]
         public void Power_powerOf2numbers(double num1, double exponent, double expectedResult)
         {
-            double testResult = uut.Power(num1, exponent);
+            double testResult = _uut.Power(num1, exponent);
 
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
@@ -93,7 +93,7 @@ namespace Calculator.TestUnit
         [TestCase(44, -0)]
         public void Divide_divideByZero_throwTest(double num1, double num2)
         {
-            DivideByZeroException ex = Assert.Throws<DivideByZeroException>(() => uut.Divide(num1, num2));
+            DivideByZeroException ex = Assert.Throws<DivideByZeroException>(() => _uut.Divide(num1, num2));
             Assert.That("Domain error", Is.EqualTo(ex.Message));
         }
 
