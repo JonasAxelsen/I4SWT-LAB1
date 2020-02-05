@@ -101,5 +101,14 @@ namespace Calculator.Test.Unit
             Assert.That("Domain error", Is.EqualTo(ex.Message));
         }
 
+        [TestCase(10,2, 5)]
+        [TestCase(0.3,22,0.0136)]
+        public void Divide_divide2numbers(double num1, double num2, double expectedResult)
+        {
+            double testResult = _uut.Divide(num1, num2);
+
+            Assert.That(testResult,Is.EqualTo(expectedResult).Within(0.001));
+        }
+
     }
 }
