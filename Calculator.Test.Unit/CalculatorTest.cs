@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace Calculator.Test.Unit
 {
@@ -109,6 +110,15 @@ namespace Calculator.Test.Unit
 
             Assert.That(testResult,Is.EqualTo(expectedResult).Within(0.001));
         }
-
+        [TestCase(10)]
+        [TestCase(32)]
+        [TestCase(3)]
+        public void ClearAccumulatorTest(double num1)
+        {
+            double testResult = _uut.Add(num1);
+            _uut.Clear();
+            testResult = _uut.Accumulator;
+            Assert.That(testResult, Is.EqualTo(0));
+        }
     }
 }
