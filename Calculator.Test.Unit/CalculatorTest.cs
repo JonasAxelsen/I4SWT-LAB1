@@ -105,6 +105,7 @@ namespace Calculator.Test.Unit
 
         [TestCase(10,2, 5)]
         [TestCase(0.3,22,0.0136)]
+        [TestCase(10,3,3.33333)]
         public void Divide_divide2numbers(double num1, double num2, double expectedResult)
         {
             double testResult = _uut.Divide(num1, num2);
