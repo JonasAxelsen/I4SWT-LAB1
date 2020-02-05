@@ -56,9 +56,9 @@ namespace Calculator.Test.Unit
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
 
-        [TestCase(1, 2U, -2)]
-        [TestCase(-0.4, 4U, -1.6)]
-        [TestCase(100, 10U, -1000)]
+        [TestCase(3, 2U, -6)]
+        [TestCase(7,3U,-21)]
+        [TestCase(10,10U,-100)]
         public void Subtract_differenceOf1numberAccumulatedXTimes(double num1, uint times, double expectedResult)
         {
 
@@ -83,6 +83,22 @@ namespace Calculator.Test.Unit
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
 
+        [TestCase(4,2,2U,16)]
+        [TestCase(9,2,3U,72)]
+        public void Multiply_1numberAccumulatedXTimes(double num1, double exp, uint times, double expectedResult)
+        {
+            _uut.Multiply(num1, exp);
+
+            for (int i = 0; i < (times-1U); i++)
+            {
+                _uut.Multiply(exp);
+            }
+
+            double testResult = _uut.Accumulator;
+
+            Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
+        }
+
         [TestCase(2, 3, 8)]
         [TestCase(-2, 3, -8)]
         [TestCase(4, 0, 1)]
@@ -90,6 +106,23 @@ namespace Calculator.Test.Unit
         public void Power_powerOf2numbers(double num1, double exponent, double expectedResult)
         {
             double testResult = _uut.Power(num1, exponent);
+
+            Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
+        }
+        
+        [TestCase(2, 2,2U,16)]
+        [TestCase(3, 2,3U,6561)]
+        [TestCase(4,2,2U,256)]
+        public void Power_powerOf1numberAccumulatedXTimes(double num1, double exp, uint times, double expectedResult)
+        {
+            _uut.Power(num1, exp);
+
+            for (int i = 0; i < (times-1U); i++)
+            {
+                _uut.Power(exp);
+            }
+
+            double testResult = _uut.Accumulator;
 
             Assert.That(testResult, Is.EqualTo(expectedResult).Within(0.01));
         }
