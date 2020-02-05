@@ -32,6 +32,7 @@ namespace Calculator.Test.Unit
 
         [TestCase(1, 2U, 2)]
         [TestCase(-0.4, 4U, -1.6)]
+        [TestCase(-100,10U,-1000)]
         public void Add_sumOf1numberAccumulatedXTimes(double num1, uint times, double expectedResult)
         {
 
@@ -58,6 +59,7 @@ namespace Calculator.Test.Unit
 
         [TestCase(1, 2U, -2)]
         [TestCase(-0.4, 4U, -1.6)]
+        [TestCase(100, 10U, -1000)]
         public void Subtract_differenceOf1numberAccumulatedXTimes(double num1, uint times, double expectedResult)
         {
 
@@ -104,6 +106,7 @@ namespace Calculator.Test.Unit
 
         [TestCase(10,2, 5)]
         [TestCase(0.3,22,0.0136)]
+        [TestCase(10,3,3.33333)]
         public void Divide_divide2numbers(double num1, double num2, double expectedResult)
         {
             double testResult = _uut.Divide(num1, num2);
